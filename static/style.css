@@ -1,0 +1,27 @@
+body{
+    background-color: gainsboro;
+    font-size: xx-large;
+    height: 100vh;
+}
+table{
+    text-align: center;
+}
+.td{
+    height: 120px;
+    width: 120px;
+    vertical-align: middle !important;
+}
+
+
+#header{
+    text-align: center;
+    font-size: 60px;
+}
+#word-box{
+    min-height: 500px;
+    max-height: 500px ;
+}
+
+ul{
+    word-wrap: normal;
+}

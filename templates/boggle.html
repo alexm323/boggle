@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="tile is-ancestor" id='head-tile'>
+
+            <!-- Left side start -->
+            <div class="tile is-parent is-vertical">
+                <h1 class='title' id='header'>Boggle</h1>
+                <table class='table is-bordered'>
+                    {%for row in board%}
+                    <tr class='tr'>
+                        {%for letter in row%}
+                        <td class='td'>{{letter}}</td>
+                        {%endfor%}
+                    </tr>
+                    {%endfor%}
+                </table>
+            </div>
+            <!-- Left side end -->
+            <!-- Right side start -->
+            <div class="tile is-vertical">
+                <!-- Time and Score Start -->
+                <div class="tile is-parent">
+
+                    <div class="tile is-child is-6 ">
+
+                        <h2>Time:</h2>
+                        <span class='title is-large' id='counter'></span>
+                    </div>
+                    <div class="tile is-child is-6">
+                        <h2 id=score-header>Score: </h2>
+                        <span id='score'></span>
+                    </div>
+
+                </div>
+                <!-- Time and Score End -->
+                <!-- Found Word List Form -->
+                <div class="tile is-vertical " id='word-box'>
+                    <div class="tile is-parent">
+                        <div class="tile is-child">
+                            <h3 id='alert' class='subtitle'>Find the linked words</h3>
+                        </div>
+                        <div class="tile is-child">
+                            <form class='field' action="">
+                                <input class='input' type="text" id='word' name='word' placeholder="Guess a word">
+                                <button class='button is-primary' id='submitBtn'>Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tile is-parent">
+                        <div class="tile is-child is-4">
+                            <h2>Found Words:</h2>
+
+                        </div>
+
+                        <div class="tile is-child box is-8">
+                            <ul id='word-list' class='content'>
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+                <!-- Found Word list end -->
+                <!-- times played and hi score start -->
+                <div class="tile">
+                    <div class="tile is-parent">
+                        <div class="tile is-child is-6">
+                            <h2>Times played: {{times_played}}</h2>
+                        </div>
+                        <div class="tile is-child is-6">
+                            <h2 id=score-header>Current Best: {{hi_score}}</h2>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- times played and hi score end -->
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Right side End -->
+
+
+
+
+
+
+
+    <!-- <footer>
+                <a href="https://gist.github.com/adhithyan15/4350689">Countdown Timer sourced from GitHub</a>
+            </footer> -->
+    </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="{{url_for('static', filename='app.js')}}"></script>
+</body>
+
+</html>
